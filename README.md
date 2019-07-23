@@ -6,12 +6,11 @@ A feature complete and easy to use QLC .Net SDK
 ```csharp
 var client = new QlcClient();
 
+var accountInfoResponse = await client.GetAccountInfoAsync("qlc_123...");
 
-
-foreach(var account in response.Data)
+foreach(var token in accountInfoResponse.Data.Tokens)
 {
-    //Do something with account
-    accountId = account.Id;
+    Console.WriteLine($"{token.TokenName} - {token.Balance}");
 }
 ```
 

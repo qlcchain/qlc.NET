@@ -59,21 +59,21 @@ namespace Qlc.Services
         /// <summary>
         /// Return contract send block by reward parameters
         /// </summary>
-        /// <param name="rewardParameters">miner reward parameters</param>
+        /// <param name="minerRewardParameters">miner reward parameters</param>
         /// <returns>Reward block, type is ContractSend</returns>
-        public QlcResponse<Block> GetRewardSendBlock(RewardParameters rewardParameters) => this.GetRewardSendBlockAsync(rewardParameters).Result;
+        public QlcResponse<Block> GetRewardSendBlock(MinerRewardParameters minerRewardParameters) => this.GetRewardSendBlockAsync(minerRewardParameters).Result;
         /// <summary>
         /// Return contract send block by reward parameters
         /// </summary>
-        /// <param name="rewardParameters">miner reward parameters</param>
+        /// <param name="minerRewardParameters">miner reward parameters</param>
         /// <returns>Reward block, type is ContractSend</returns>
-        public async Task<QlcResponse<Block>> GetRewardSendBlockAsync(RewardParameters rewardParameters)
+        public async Task<QlcResponse<Block>> GetRewardSendBlockAsync(MinerRewardParameters minerRewardParameters)
         {
             var request = new QlcRequest
             {
                 Method = "miner_getRewardSendBlock",
                 Id = this.GetNextId(),
-                Parameters = { rewardParameters },
+                Parameters = { minerRewardParameters },
             };
 
             return await this.netClient.GetResponseAsync<Block>(request).ConfigureAwait(false);

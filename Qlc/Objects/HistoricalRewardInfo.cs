@@ -29,6 +29,6 @@ namespace Qlc.Objects
         /// Reward info list
         /// </summary>
         [JsonProperty("rewardInfos")]
-        public List<RewardInfo> Rewards { get; set; }
+        public List<MinerRewardInfo> MinerRewards { get; set; }
     }
 }

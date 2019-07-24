@@ -2,7 +2,7 @@
 
 namespace Qlc.Objects
 {
-    public class RewardDetails
+    public class MinerRewardDetails
     {
         [JsonProperty("type")]
         public int Type { get; set; }

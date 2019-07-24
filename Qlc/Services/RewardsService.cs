@@ -62,13 +62,13 @@ namespace Qlc.Services
         /// </summary>
         /// <param name="pledgeTxId">Transaction id for the pledge</param>
         /// <returns>Reward details</returns>
-        public QlcResponse<List<RewardDetails>> GetRewardDetails(string pledgeTxId) => this.GetRewardDetailsAsync(pledgeTxId).Result;
+        public QlcResponse<List<MinerRewardDetails>> GetRewardDetails(string pledgeTxId) => this.GetRewardDetailsAsync(pledgeTxId).Result;
         /// <summary>
         /// Returns airdrop qgas reward detail info for a specific pledge
         /// </summary>
         /// <param name="pledgeTxId">Transaction id for the pledge</param>
         /// <returns>Reward details</returns>
-        public async Task<QlcResponse<List<RewardDetails>>> GetRewardDetailsAsync(string pledgeTxId)
+        public async Task<QlcResponse<List<MinerRewardDetails>>> GetRewardDetailsAsync(string pledgeTxId)
         {
             var request = new QlcRequest
             {
@@ -77,7 +77,7 @@ namespace Qlc.Services
                 Parameters = { pledgeTxId },
             };
 
-            return await this.netClient.GetResponseAsync<List<RewardDetails>>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<List<MinerRewardDetails>>(request).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -108,14 +108,14 @@ namespace Qlc.Services
         /// </summary>
         /// <param name="confidantAddress">Confidant address</param>
         /// <returns>Reward details</returns>
-        public QlcResponse<Dictionary<string, List<RewardDetails>>> GetConfidantRewardDetails(string confidantAddress) =>
+        public QlcResponse<Dictionary<string, List<MinerRewardDetails>>> GetConfidantRewardDetails(string confidantAddress) =>
             this.GetConfidantRewardDetailsAsync(confidantAddress).Result;
         /// <summary>
         /// Returns airdrop qgas rewards detail info for a specific confidant address
         /// </summary>
         /// <param name="confidantAddress">Confidant address</param>
         /// <returns>Reward details</returns>
-        public async Task<QlcResponse<Dictionary<string, List<RewardDetails>>>> GetConfidantRewardDetailsAsync(string confidantAddress)
+        public async Task<QlcResponse<Dictionary<string, List<MinerRewardDetails>>>> GetConfidantRewardDetailsAsync(string confidantAddress)
         {
             var request = new QlcRequest
             {
@@ -124,7 +124,7 @@ namespace Qlc.Services
                 Parameters = { confidantAddress },
             };
 
-            return await this.netClient.GetResponseAsync<Dictionary<string, List<RewardDetails>>>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<Dictionary<string, List<MinerRewardDetails>>>(request).ConfigureAwait(false);
         }
     }
 }

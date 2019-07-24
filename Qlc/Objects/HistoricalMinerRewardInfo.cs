@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Qlc.Objects
 {
-    public class HistoricalRewardInfo
+    public class HistoricalMinerRewardInfo
     {
         /// <summary>
         /// All reward balance by miner

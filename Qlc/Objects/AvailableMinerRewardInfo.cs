@@ -2,7 +2,7 @@
 
 namespace Qlc.Objects
 {
-    public class AvailableRewardInfo
+    public class AvailableMinerRewardInfo
     {
         /// <summary>
         /// Available reward block end height for miner

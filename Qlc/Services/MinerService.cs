@@ -14,14 +14,14 @@ namespace Qlc.Services
         /// Return miner history reward info by coinbase address
         /// </summary>
         /// <param name="coinbase">Miner address</param>
-        /// <returns>Reward history</returns>
-        public QlcResponse<HistoricalRewardInfo> GetRewardHistory(string coinbase) => this.GetRewardHistoryAsync(coinbase).Result;
+        /// <returns>Miner reward history</returns>
+        public QlcResponse<HistoricalMinerRewardInfo> GetRewardHistory(string coinbase) => this.GetRewardHistoryAsync(coinbase).Result;
         /// <summary>
         /// Return miner history reward info by coinbase address
         /// </summary>
         /// <param name="coinbase">Miner address</param>
-        /// <returns>Reward history</returns>
-        public async Task<QlcResponse<HistoricalRewardInfo>> GetRewardHistoryAsync(string coinbase)
+        /// <returns>Miner reward history</returns>
+        public async Task<QlcResponse<HistoricalMinerRewardInfo>> GetRewardHistoryAsync(string coinbase)
         {
             var request = new QlcRequest
             {
@@ -30,7 +30,7 @@ namespace Qlc.Services
                 Parameters = { coinbase },
             };
 
-            return await this.netClient.GetResponseAsync<HistoricalRewardInfo>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<HistoricalMinerRewardInfo>(request).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -38,13 +38,13 @@ namespace Qlc.Services
         /// </summary>
         /// <param name="coinbase"></param>
         /// <returns>Available rewards</returns>
-        public QlcResponse<AvailableRewardInfo> GetAvailableRewardInfo(string coinbase) => this.GetAvailableRewardInfoAsync(coinbase).Result;
+        public QlcResponse<AvailableMinerRewardInfo> GetAvailableRewardInfo(string coinbase) => this.GetAvailableRewardInfoAsync(coinbase).Result;
         /// <summary>
         /// Return miner available reward info by coinbase address. Client should call miner reward contract when NeedCallReward is true.
         /// </summary>
         /// <param name="coinbase"></param>
         /// <returns>Available rewards</returns>
-        public async Task<QlcResponse<AvailableRewardInfo>> GetAvailableRewardInfoAsync(string coinbase)
+        public async Task<QlcResponse<AvailableMinerRewardInfo>> GetAvailableRewardInfoAsync(string coinbase)
         {
             var request = new QlcRequest
             {
@@ -53,7 +53,7 @@ namespace Qlc.Services
                 Parameters = { coinbase },
             };
 
-            return await this.netClient.GetResponseAsync<AvailableRewardInfo>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<AvailableMinerRewardInfo>(request).ConfigureAwait(false);
         }
 
         /// <summary>

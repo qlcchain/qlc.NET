@@ -211,13 +211,13 @@ namespace Qlc.Services
         /// </summary>
         /// <param name="txHash">Transaction hash</param>
         /// <returns>Transaction</returns>
-        public QlcResponse<Transaction> GetTransaction(string txHash) => this.GetTransactionAsync(txHash).Result;
+        public QlcResponse<PovTransaction> GetTransaction(string txHash) => this.GetTransactionAsync(txHash).Result;
         /// <summary>
         /// Return transaction by tx hash
         /// </summary>
         /// <param name="txHash">Transaction hash</param>
         /// <returns>Transaction</returns>
-        public async Task<QlcResponse<Transaction>> GetTransactionAsync(string txHash)
+        public async Task<QlcResponse<PovTransaction>> GetTransactionAsync(string txHash)
         {
             var request = new QlcRequest
             {
@@ -226,7 +226,7 @@ namespace Qlc.Services
                 Parameters = { txHash },
             };
 
-            return await this.netClient.GetResponseAsync<Transaction>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<PovTransaction>(request).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -235,14 +235,14 @@ namespace Qlc.Services
         /// <param name="blockHash">block hash</param>
         /// <param name="index">tx index</param>
         /// <returns>Transaction</returns>
-        public QlcResponse<Transaction> GetTransactionByBlockHashAndIndex(string blockHash, int index) => this.GetTransactionByBlockHashAndIndexAsync(blockHash, index).Result;
+        public QlcResponse<PovTransaction> GetTransactionByBlockHashAndIndex(string blockHash, int index) => this.GetTransactionByBlockHashAndIndexAsync(blockHash, index).Result;
         /// <summary>
         /// Return transaction by block hash and tx index
         /// </summary>
         /// <param name="blockHash">block hash</param>
         /// <param name="index">tx index</param>
         /// <returns>Transaction</returns>
-        public async Task<QlcResponse<Transaction>> GetTransactionByBlockHashAndIndexAsync(string blockHash, int index)
+        public async Task<QlcResponse<PovTransaction>> GetTransactionByBlockHashAndIndexAsync(string blockHash, int index)
         {
             var request = new QlcRequest
             {
@@ -251,7 +251,7 @@ namespace Qlc.Services
                 Parameters = { blockHash, index },
             };
 
-            return await this.netClient.GetResponseAsync<Transaction>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<PovTransaction>(request).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -260,14 +260,14 @@ namespace Qlc.Services
         /// <param name="blockHeight">Block height</param>
         /// <param name="index">Tx index</param>
         /// <returns>Transaction</returns>
-        public QlcResponse<Transaction> GetTransactionByBlockHeightAndIndex(ulong blockHeight, int index) => this.GetTransactionByBlockHeightAndIndexAsync(blockHeight, index).Result;
+        public QlcResponse<PovTransaction> GetTransactionByBlockHeightAndIndex(ulong blockHeight, int index) => this.GetTransactionByBlockHeightAndIndexAsync(blockHeight, index).Result;
         /// <summary>
         /// Return transaction by block height and tx index
         /// </summary>
         /// <param name="blockHeight">Block height</param>
         /// <param name="index">Tx index</param>
         /// <returns>Transaction</returns>
-        public async Task<QlcResponse<Transaction>> GetTransactionByBlockHeightAndIndexAsync(ulong blockHeight, int index)
+        public async Task<QlcResponse<PovTransaction>> GetTransactionByBlockHeightAndIndexAsync(ulong blockHeight, int index)
         {
             var request = new QlcRequest
             {
@@ -276,7 +276,7 @@ namespace Qlc.Services
                 Parameters = { blockHeight, index },
             };
 
-            return await this.netClient.GetResponseAsync<Transaction>(request).ConfigureAwait(false);
+            return await this.netClient.GetResponseAsync<PovTransaction>(request).ConfigureAwait(false);
         }
     }
 }

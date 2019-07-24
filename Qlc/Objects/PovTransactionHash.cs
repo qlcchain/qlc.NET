@@ -2,7 +2,7 @@
 
 namespace Qlc.Objects
 {
-    public class TransactionHash
+    public class PovTransactionHash
     {
         [JsonProperty("hash")]
         public string Hash { get; set; }

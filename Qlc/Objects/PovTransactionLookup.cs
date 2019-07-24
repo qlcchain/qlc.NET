@@ -2,7 +2,7 @@
 
 namespace Qlc.Objects
 {
-    public class TransactionLookup
+    public class PovTransactionLookup
     {
         [JsonProperty("blockHash")]
         public string BlockHash { get; set; }
